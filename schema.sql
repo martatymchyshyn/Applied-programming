@@ -15,11 +15,9 @@ create table if not exists users(
 
 create table if not exists advertisements(
     id serial PRIMARY KEY,
-    name varchar(50),
-    status varchar(50),
+    title varchar(40),
+    body varchar(255),
+    is_public boolean,
     user_id bigint,
     FOREIGN KEY (user_id) REFERENCES users(id)
-
 );
-
-

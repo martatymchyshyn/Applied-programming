@@ -26,12 +26,12 @@ class User(Base):
    location = orm.relationship(Location, backref = "users", lazy = "joined")
 
 class Ad(Base):
-   __tablename__ = "advertisements"
+   __tablename__ = "ads"
+
    id = Column(Integer, primary_key=True)
-
-   name = Column(String)
-   status = Column(String)
+   title = Column(String)
+   is_public = Column(Boolean)
+   body = Column(String)
    user_id = Column(Integer, ForeignKey(User.id))
-   user = orm.relationship(User, backref = "advertisements", lazy = "joined")
 
-   
+   user = orm.relationship(User, backref = "advertisements", lazy = "joined")
